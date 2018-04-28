@@ -1,0 +1,1874 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 10500.18.0404.1406                               -->
+<workbook original-version='10.5' source-build='10.5.3 (10500.18.0404.1406)' source-platform='win' version='10.5' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='Sheet1 (Taxi Travel For Excel)' inline='true' name='federated.1tmxty81kiwfl11232ja80nm7ee8' version='10.5'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='Taxi Travel For Excel' name='excel-direct.0w6qeop0f8zzb419mqxhn16o9dzq'>
+            <connection class='excel-direct' cleaning='yes' compat='no' dataRefreshTime='' filename='H:/The Data Incubator Projects/Taxi Travel/Taxi Travel For Excel.xlsx' interpretationMode='1' password='' server='' validate='no' />
+          </named-connection>
+        </named-connections>
+        <relation connection='excel-direct.0w6qeop0f8zzb419mqxhn16o9dzq' name='Sheet1' table='[Sheet1$]' type='table'>
+          <columns gridOrigin='A1:B258:no:A1:B258:1' header='yes' lost='0' outcome='1' processed='253'>
+            <column datatype='string' name='Zone' ordinal='0' />
+            <column datatype='integer' name='Frequency (July 2017)' ordinal='1' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>Zone</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Zone]</local-name>
+            <parent-name>[Sheet1]</parent-name>
+            <remote-alias>Zone</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Frequency (July 2017)</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Frequency (July 2017)]</local-name>
+            <parent-name>[Sheet1]</parent-name>
+            <remote-alias>Frequency (July 2017)</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[Sheet1]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:B258:no:A1:B258:1&quot;</attribute>
+              <attribute datatype='integer' name='lost'>0</attribute>
+              <attribute datatype='integer' name='outcome'>1</attribute>
+              <attribute datatype='integer' name='processed'>253</attribute>
+            </attributes>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column datatype='string' name='[Zone]' role='dimension' semantic-role='' type='nominal' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.487406' measure-ordering='alphabetic' measure-percentage='0.512594' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+    </datasource>
+  </datasources>
+  <mapsources>
+    <mapsource name='Tableau' />
+  </mapsources>
+  <worksheets>
+    <worksheet name='Sheet 1'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>Frequency of drop off location from leaving Times Square in the month of July, 2017</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Sheet1 (Taxi Travel For Excel)' name='federated.1tmxty81kiwfl11232ja80nm7ee8' />
+          </datasources>
+          <mapsources>
+            <mapsource name='Tableau' />
+          </mapsources>
+          <datasource-dependencies datasource='federated.1tmxty81kiwfl11232ja80nm7ee8'>
+            <column datatype='integer' name='[Frequency (July 2017)]' role='measure' type='quantitative' />
+            <column datatype='string' name='[Zone]' role='dimension' semantic-role='' type='nominal' />
+            <column-instance column='[Zone]' derivation='None' name='[none:Zone:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Frequency (July 2017)]' derivation='Sum' name='[sum:Frequency (July 2017):qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]'>
+            <groupfilter function='union' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:Zone:nk]' member='&quot;Battery Park City&quot;' />
+              <groupfilter function='member' level='[none:Zone:nk]' member='&quot;Central Park&quot;' />
+              <groupfilter function='member' level='[none:Zone:nk]' member='&quot;Clinton East&quot;' />
+              <groupfilter function='member' level='[none:Zone:nk]' member='&quot;Clinton West&quot;' />
+              <groupfilter function='member' level='[none:Zone:nk]' member='&quot;East Chelsea&quot;' />
+              <groupfilter function='member' level='[none:Zone:nk]' member='&quot;East Village&quot;' />
+              <groupfilter function='member' level='[none:Zone:nk]' member='&quot;Flatiron&quot;' />
+              <groupfilter function='member' level='[none:Zone:nk]' member='&quot;Garment District&quot;' />
+              <groupfilter function='member' level='[none:Zone:nk]' member='&quot;Gramercy&quot;' />
+              <groupfilter function='member' level='[none:Zone:nk]' member='&quot;Greenwich Village North&quot;' />
+              <groupfilter function='member' level='[none:Zone:nk]' member='&quot;Greenwich Village South&quot;' />
+              <groupfilter function='member' level='[none:Zone:nk]' member='&quot;JFK Airport&quot;' />
+              <groupfilter function='member' level='[none:Zone:nk]' member='&quot;Kips Bay&quot;' />
+              <groupfilter function='member' level='[none:Zone:nk]' member='&quot;LaGuardia Airport&quot;' />
+              <groupfilter function='member' level='[none:Zone:nk]' member='&quot;Lenox Hill East&quot;' />
+              <groupfilter function='member' level='[none:Zone:nk]' member='&quot;Lenox Hill West&quot;' />
+              <groupfilter function='member' level='[none:Zone:nk]' member='&quot;Lincoln Square East&quot;' />
+              <groupfilter function='member' level='[none:Zone:nk]' member='&quot;Lincoln Square West&quot;' />
+              <groupfilter function='member' level='[none:Zone:nk]' member='&quot;Little Italy/NoLiTa&quot;' />
+              <groupfilter function='member' level='[none:Zone:nk]' member='&quot;Meatpacking/West Village West&quot;' />
+              <groupfilter function='member' level='[none:Zone:nk]' member='&quot;Midtown Center&quot;' />
+              <groupfilter function='member' level='[none:Zone:nk]' member='&quot;Midtown East&quot;' />
+              <groupfilter function='member' level='[none:Zone:nk]' member='&quot;Midtown North&quot;' />
+              <groupfilter function='member' level='[none:Zone:nk]' member='&quot;Midtown South&quot;' />
+              <groupfilter function='member' level='[none:Zone:nk]' member='&quot;Murray Hill&quot;' />
+              <groupfilter function='member' level='[none:Zone:nk]' member='&quot;Penn Station/Madison Sq West&quot;' />
+              <groupfilter function='member' level='[none:Zone:nk]' member='&quot;Sutton Place/Turtle Bay North&quot;' />
+              <groupfilter function='member' level='[none:Zone:nk]' member='&quot;Times Sq/Theatre District&quot;' />
+              <groupfilter function='member' level='[none:Zone:nk]' member='&quot;TriBeCa/Civic Center&quot;' />
+              <groupfilter function='member' level='[none:Zone:nk]' member='&quot;UN/Turtle Bay South&quot;' />
+              <groupfilter function='member' level='[none:Zone:nk]' member='&quot;Union Sq&quot;' />
+              <groupfilter function='member' level='[none:Zone:nk]' member='&quot;Upper East Side North&quot;' />
+              <groupfilter function='member' level='[none:Zone:nk]' member='&quot;Upper East Side South&quot;' />
+              <groupfilter function='member' level='[none:Zone:nk]' member='&quot;Upper West Side North&quot;' />
+              <groupfilter function='member' level='[none:Zone:nk]' member='&quot;Upper West Side South&quot;' />
+              <groupfilter function='member' level='[none:Zone:nk]' member='&quot;West Chelsea/Hudson Yards&quot;' />
+              <groupfilter function='member' level='[none:Zone:nk]' member='&quot;West Village&quot;' />
+              <groupfilter function='member' level='[none:Zone:nk]' member='&quot;World Trade Center&quot;' />
+              <groupfilter function='member' level='[none:Zone:nk]' member='&quot;Yorkville West&quot;' />
+            </groupfilter>
+          </filter>
+          <sort class='computed' column='[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]' direction='DESC' using='[federated.1tmxty81kiwfl11232ja80nm7ee8].[sum:Frequency (July 2017):qk]' />
+          <slices>
+            <column>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='mark'>
+            <encoding attr='size-bar' field='[federated.1tmxty81kiwfl11232ja80nm7ee8].[sum:Frequency (July 2017):qk]' field-type='quantitative' max-size='1' min-size='0.005' type='centersize' />
+            <encoding attr='color' field='[federated.1tmxty81kiwfl11232ja80nm7ee8].[sum:Frequency (July 2017):qk]' type='custom-interpolated'>
+              <color-palette custom='true' name='' type='ordered-sequential'>
+                <color>#f1f1f1</color>
+                <color>#f2dada</color>
+                <color>#f3c3c3</color>
+                <color>#f5abac</color>
+                <color>#f69395</color>
+                <color>#f87c7d</color>
+                <color>#f96366</color>
+                <color>#fa4b4d</color>
+                <color>#fc3235</color>
+                <color>#fd191c</color>
+                <color>#ff0004</color>
+              </color-palette>
+            </encoding>
+          </style-rule>
+          <style-rule element='map-layer'>
+            <format attr='enabled' id='tab_base' value='true' />
+            <format attr='enabled' id='um_lcover' value='true' />
+            <format attr='enabled' id='tab_coastline' value='false' />
+            <format attr='enabled' id='pp2_line' value='false' />
+            <format attr='enabled' id='light_adm0_bnd' value='false' />
+            <format attr='enabled' id='light_adm0_lbl' value='false' />
+            <format attr='enabled' id='um_adm0_bnd' value='true' />
+            <format attr='enabled' id='um_adm0_lbl' value='true' />
+            <format attr='enabled' id='light_pp2_statebounds' value='false' />
+            <format attr='enabled' id='light_pp2_statelabels' value='false' />
+            <format attr='enabled' id='pp2_adminlabels' value='false' />
+            <format attr='enabled' id='pp2_statebounds' value='true' />
+            <format attr='enabled' id='pp2_statelabels' value='true' />
+            <format attr='enabled' id='countybounds' value='false' />
+            <format attr='enabled' id='countylabels' value='false' />
+            <format attr='enabled' id='zipbounds' value='false' />
+            <format attr='enabled' id='ziplabels' value='false' />
+            <format attr='enabled' id='tab_areabounds' value='false' />
+            <format attr='enabled' id='tab_arealabels' value='false' />
+            <format attr='enabled' id='tab_msabounds' value='false' />
+            <format attr='enabled' id='tab_msalabels' value='false' />
+          </style-rule>
+          <style-rule element='map'>
+            <format attr='washout' value='0.0' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='size' value='1.5272375345230103' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1tmxty81kiwfl11232ja80nm7ee8].[sum:Frequency (July 2017):qk]</rows>
+        <cols>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</cols>
+      </table>
+    </worksheet>
+    <worksheet name='Sheet 2'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>Percent probability a customer is likely to be dropped at a certain location</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Sheet1 (Taxi Travel For Excel)' name='federated.1tmxty81kiwfl11232ja80nm7ee8' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1tmxty81kiwfl11232ja80nm7ee8'>
+            <column datatype='integer' name='[Frequency (July 2017)]' role='measure' type='quantitative' />
+            <column datatype='string' name='[Zone]' role='dimension' semantic-role='' type='nominal' />
+            <column-instance column='[Zone]' derivation='None' name='[none:Zone:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Frequency (July 2017)]' derivation='Sum' name='[pcto:sum:Frequency (July 2017):qk:2]' pivot='key' type='quantitative'>
+              <table-calc ordering-type='Rows' type='PctTotal' />
+            </column-instance>
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]'>
+            <groupfilter function='except' user:ui-domain='database' user:ui-enumeration='exclusive' user:ui-marker='enumerate'>
+              <groupfilter function='level-members' level='[none:Zone:nk]' />
+              <groupfilter function='union'>
+                <groupfilter from='&quot;Allerton/Pelham Gardens&quot;' function='range' level='[none:Zone:nk]' to='&quot;Arrochar/Fort Wadsworth&quot;' />
+                <groupfilter from='&quot;Astoria Park&quot;' function='range' level='[none:Zone:nk]' to='&quot;Battery Park&quot;' />
+                <groupfilter from='&quot;Bay Ridge&quot;' function='range' level='[none:Zone:nk]' to='&quot;Carroll Gardens&quot;' />
+                <groupfilter function='member' level='[none:Zone:nk]' member='&quot;Central Harlem North&quot;' />
+                <groupfilter from='&quot;Charleston/Tottenville&quot;' function='range' level='[none:Zone:nk]' to='&quot;Claremont/Bathgate&quot;' />
+                <groupfilter function='member' level='[none:Zone:nk]' member='&quot;Clinton Hill&quot;' />
+                <groupfilter from='&quot;Co-Op City&quot;' function='range' level='[none:Zone:nk]' to='&quot;Dyker Heights&quot;' />
+                <groupfilter from='&quot;East Concourse/Concourse Village&quot;' function='range' level='[none:Zone:nk]' to='&quot;East Harlem North&quot;' />
+                <groupfilter from='&quot;East New York&quot;' function='range' level='[none:Zone:nk]' to='&quot;East Tremont&quot;' />
+                <groupfilter from='&quot;East Williamsburg&quot;' function='range' level='[none:Zone:nk]' to='&quot;Far Rockaway&quot;' />
+                <groupfilter function='member' level='[none:Zone:nk]' member='&quot;Flatbush/Ditmas Park&quot;' />
+                <groupfilter from='&quot;Flatlands&quot;' function='range' level='[none:Zone:nk]' to='&quot;Freshkills Park&quot;' />
+                <groupfilter from='&quot;Glen Oaks&quot;' function='range' level='[none:Zone:nk]' to='&quot;Gowanus&quot;' />
+                <groupfilter from='&quot;Gravesend&quot;' function='range' level='[none:Zone:nk]' to='&quot;Greenpoint&quot;' />
+                <groupfilter from='&quot;Grymes Hill/Clifton&quot;' function='range' level='[none:Zone:nk]' to='&quot;Jamaica Estates&quot;' />
+                <groupfilter from='&quot;Kensington&quot;' function='range' level='[none:Zone:nk]' to='&quot;Kingsbridge Heights&quot;' />
+                <groupfilter function='member' level='[none:Zone:nk]' member='&quot;Laurelton&quot;' />
+                <groupfilter from='&quot;Long Island City/Hunters Point&quot;' function='range' level='[none:Zone:nk]' to='&quot;Longwood&quot;' />
+                <groupfilter function='member' level='[none:Zone:nk]' member='&quot;Madison&quot;' />
+                <groupfilter function='member' level='[none:Zone:nk]' member='&quot;Manhattan Beach&quot;' />
+                <groupfilter from='&quot;Manhattanville&quot;' function='range' level='[none:Zone:nk]' to='&quot;Maspeth&quot;' />
+                <groupfilter function='member' level='[none:Zone:nk]' member='&quot;Melrose South&quot;' />
+                <groupfilter function='member' level='[none:Zone:nk]' member='&quot;Middle Village&quot;' />
+                <groupfilter function='member' level='[none:Zone:nk]' member='&quot;Midwood&quot;' />
+                <groupfilter from='&quot;Morrisania/Melrose&quot;' function='range' level='[none:Zone:nk]' to='&quot;Mount Hope&quot;' />
+                <groupfilter from='&quot;Murray Hill-Queens&quot;' function='range' level='[none:Zone:nk]' to='&quot;New Dorp/Midland Beach&quot;' />
+                <groupfilter from='&quot;North Corona&quot;' function='range' level='[none:Zone:nk]' to='&quot;Pelham Parkway&quot;' />
+                <groupfilter from='&quot;Prospect Heights&quot;' function='range' level='[none:Zone:nk]' to='&quot;Sheepshead Bay&quot;' />
+                <groupfilter from='&quot;Soundview/Bruckner&quot;' function='range' level='[none:Zone:nk]' to='&quot;Sunset Park West&quot;' />
+                <groupfilter function='member' level='[none:Zone:nk]' member='&quot;Two Bridges/Seward Park&quot;' />
+                <groupfilter function='member' level='[none:Zone:nk]' member='&quot;University Heights/Morris Heights&quot;' />
+                <groupfilter from='&quot;Van Cortlandt Park&quot;' function='range' level='[none:Zone:nk]' to='&quot;West Brighton&quot;' />
+                <groupfilter function='member' level='[none:Zone:nk]' member='&quot;West Concourse&quot;' />
+                <groupfilter function='member' level='[none:Zone:nk]' member='&quot;West Farms/Bronx River&quot;' />
+                <groupfilter from='&quot;Westchester Village/Unionport&quot;' function='range' level='[none:Zone:nk]' to='&quot;Woodside&quot;' />
+              </groupfilter>
+            </groupfilter>
+          </filter>
+          <sort class='manual' column='[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]' direction='ASC'>
+            <dictionary>
+              <bucket>&quot;Penn Station/Madison Sq West&quot;</bucket>
+              <bucket>&quot;Midtown Center&quot;</bucket>
+              <bucket>&quot;Midtown North&quot;</bucket>
+              <bucket>&quot;Times Sq/Theatre District&quot;</bucket>
+              <bucket>&quot;Clinton East&quot;</bucket>
+              <bucket>&quot;Midtown East&quot;</bucket>
+              <bucket>&quot;Lincoln Square East&quot;</bucket>
+              <bucket>&quot;LaGuardia Airport&quot;</bucket>
+              <bucket>&quot;Midtown South&quot;</bucket>
+              <bucket>&quot;Murray Hill&quot;</bucket>
+              <bucket>&quot;Clinton West&quot;</bucket>
+              <bucket>&quot;Garment District&quot;</bucket>
+              <bucket>&quot;West Chelsea/Hudson Yards&quot;</bucket>
+              <bucket>&quot;East Chelsea&quot;</bucket>
+              <bucket>&quot;Upper West Side South&quot;</bucket>
+              <bucket>&quot;Central Park&quot;</bucket>
+              <bucket>&quot;Union Sq&quot;</bucket>
+              <bucket>&quot;Upper East Side South&quot;</bucket>
+              <bucket>&quot;Upper East Side North&quot;</bucket>
+              <bucket>&quot;Sutton Place/Turtle Bay North&quot;</bucket>
+              <bucket>&quot;JFK Airport&quot;</bucket>
+              <bucket>&quot;UN/Turtle Bay South&quot;</bucket>
+              <bucket>&quot;Battery Park City&quot;</bucket>
+              <bucket>&quot;Upper West Side North&quot;</bucket>
+              <bucket>&quot;Flatiron&quot;</bucket>
+              <bucket>&quot;Lincoln Square West&quot;</bucket>
+              <bucket>&quot;Lenox Hill West&quot;</bucket>
+              <bucket>&quot;Gramercy&quot;</bucket>
+              <bucket>&quot;East Village&quot;</bucket>
+              <bucket>&quot;TriBeCa/Civic Center&quot;</bucket>
+              <bucket>&quot;West Village&quot;</bucket>
+              <bucket>&quot;Meatpacking/West Village West&quot;</bucket>
+              <bucket>&quot;Greenwich Village North&quot;</bucket>
+              <bucket>&quot;Lenox Hill East&quot;</bucket>
+              <bucket>&quot;Little Italy/NoLiTa&quot;</bucket>
+              <bucket>&quot;Yorkville West&quot;</bucket>
+              <bucket>&quot;Greenwich Village South&quot;</bucket>
+              <bucket>&quot;World Trade Center&quot;</bucket>
+              <bucket>&quot;Kips Bay&quot;</bucket>
+              <bucket>&quot;Lower East Side&quot;</bucket>
+              <bucket>&quot;SoHo&quot;</bucket>
+              <bucket>&quot;Financial District North&quot;</bucket>
+              <bucket>&quot;Manhattan Valley&quot;</bucket>
+              <bucket>&quot;Yorkville East&quot;</bucket>
+              <bucket>&quot;Financial District South&quot;</bucket>
+              <bucket>&quot;Newark Airport&quot;</bucket>
+              <bucket>&quot;Central Harlem&quot;</bucket>
+              <bucket>&quot;Morningside Heights&quot;</bucket>
+              <bucket>&quot;East Harlem South&quot;</bucket>
+              <bucket>&quot;Astoria&quot;</bucket>
+              <bucket>&quot;Hudson Sq&quot;</bucket>
+              <bucket>&quot;Central Harlem North&quot;</bucket>
+              <bucket>&quot;Washington Heights South&quot;</bucket>
+              <bucket>&quot;Battery Park&quot;</bucket>
+              <bucket>&quot;East Harlem North&quot;</bucket>
+              <bucket>&quot;Hamilton Heights&quot;</bucket>
+              <bucket>&quot;Sunnyside&quot;</bucket>
+              <bucket>&quot;Long Island City/Hunters Point&quot;</bucket>
+              <bucket>&quot;Bloomingdale&quot;</bucket>
+              <bucket>&quot;Washington Heights North&quot;</bucket>
+              <bucket>&quot;Chinatown&quot;</bucket>
+              <bucket>&quot;Two Bridges/Seward Park&quot;</bucket>
+              <bucket>&quot;nan&quot;</bucket>
+              <bucket>&quot;Seaport&quot;</bucket>
+              <bucket>&quot;Steinway&quot;</bucket>
+              <bucket>&quot;Stuy Town/Peter Cooper Village&quot;</bucket>
+              <bucket>&quot;Alphabet City&quot;</bucket>
+              <bucket>&quot;Jackson Heights&quot;</bucket>
+              <bucket>&quot;Brooklyn Heights&quot;</bucket>
+              <bucket>&quot;Park Slope&quot;</bucket>
+              <bucket>&quot;Long Island City/Queens Plaza&quot;</bucket>
+              <bucket>&quot;Williamsburg (North Side)&quot;</bucket>
+              <bucket>&quot;Downtown Brooklyn/MetroTech&quot;</bucket>
+              <bucket>&quot;Old Astoria&quot;</bucket>
+              <bucket>&quot;Manhattanville&quot;</bucket>
+              <bucket>&quot;Williamsburg (South Side)&quot;</bucket>
+              <bucket>&quot;Greenpoint&quot;</bucket>
+              <bucket>&quot;Woodside&quot;</bucket>
+              <bucket>&quot;NV&quot;</bucket>
+              <bucket>&quot;Forest Hills&quot;</bucket>
+              <bucket>&quot;DUMBO/Vinegar Hill&quot;</bucket>
+              <bucket>&quot;Boerum Hill&quot;</bucket>
+              <bucket>&quot;Elmhurst&quot;</bucket>
+              <bucket>&quot;Inwood&quot;</bucket>
+              <bucket>&quot;West Concourse&quot;</bucket>
+              <bucket>&quot;Bushwick South&quot;</bucket>
+              <bucket>&quot;Fort Greene&quot;</bucket>
+              <bucket>&quot;Bedford&quot;</bucket>
+              <bucket>&quot;Crown Heights North&quot;</bucket>
+              <bucket>&quot;Bay Ridge&quot;</bucket>
+              <bucket>&quot;East Williamsburg&quot;</bucket>
+              <bucket>&quot;Mott Haven/Port Morris&quot;</bucket>
+              <bucket>&quot;Rego Park&quot;</bucket>
+              <bucket>&quot;East Concourse/Concourse Village&quot;</bucket>
+              <bucket>&quot;Stuyvesant Heights&quot;</bucket>
+              <bucket>&quot;Clinton Hill&quot;</bucket>
+              <bucket>&quot;Ridgewood&quot;</bucket>
+              <bucket>&quot;Maspeth&quot;</bucket>
+              <bucket>&quot;Roosevelt Island&quot;</bucket>
+              <bucket>&quot;East Elmhurst&quot;</bucket>
+              <bucket>&quot;Spuyten Duyvil/Kingsbridge&quot;</bucket>
+              <bucket>&quot;Elmhurst/Maspeth&quot;</bucket>
+              <bucket>&quot;Flushing Meadows-Corona Park&quot;</bucket>
+              <bucket>&quot;Red Hook&quot;</bucket>
+              <bucket>&quot;Sunset Park West&quot;</bucket>
+              <bucket>&quot;Prospect Heights&quot;</bucket>
+              <bucket>&quot;Carroll Gardens&quot;</bucket>
+              <bucket>&quot;Riverdale/North Riverdale/Fieldston&quot;</bucket>
+              <bucket>&quot;Queensbridge/Ravenswood&quot;</bucket>
+              <bucket>&quot;Cobble Hill&quot;</bucket>
+              <bucket>&quot;Flushing&quot;</bucket>
+              <bucket>&quot;Bushwick North&quot;</bucket>
+              <bucket>&quot;Middle Village&quot;</bucket>
+              <bucket>&quot;Highbridge&quot;</bucket>
+              <bucket>&quot;Flatbush/Ditmas Park&quot;</bucket>
+              <bucket>&quot;Corona&quot;</bucket>
+              <bucket>&quot;Prospect-Lefferts Gardens&quot;</bucket>
+              <bucket>&quot;Gowanus&quot;</bucket>
+              <bucket>&quot;Woodlawn/Wakefield&quot;</bucket>
+              <bucket>&quot;Baisley Park&quot;</bucket>
+              <bucket>&quot;South Ozone Park&quot;</bucket>
+              <bucket>&quot;North Corona&quot;</bucket>
+              <bucket>&quot;University Heights/Morris Heights&quot;</bucket>
+              <bucket>&quot;Crown Heights South&quot;</bucket>
+              <bucket>&quot;Mount Hope&quot;</bucket>
+              <bucket>&quot;Windsor Terrace&quot;</bucket>
+              <bucket>&quot;Sunset Park East&quot;</bucket>
+              <bucket>&quot;Melrose South&quot;</bucket>
+              <bucket>&quot;Morrisania/Melrose&quot;</bucket>
+              <bucket>&quot;Bronx Park&quot;</bucket>
+              <bucket>&quot;Van Cortlandt Village&quot;</bucket>
+              <bucket>&quot;Glendale&quot;</bucket>
+              <bucket>&quot;Coney Island&quot;</bucket>
+              <bucket>&quot;Briarwood/Jamaica Hills&quot;</bucket>
+              <bucket>&quot;Soundview/Bruckner&quot;</bucket>
+              <bucket>&quot;Kew Gardens&quot;</bucket>
+              <bucket>&quot;Dyker Heights&quot;</bucket>
+              <bucket>&quot;Belmont&quot;</bucket>
+              <bucket>&quot;Bedford Park&quot;</bucket>
+              <bucket>&quot;Bensonhurst West&quot;</bucket>
+              <bucket>&quot;Norwood&quot;</bucket>
+              <bucket>&quot;Parkchester&quot;</bucket>
+              <bucket>&quot;Claremont/Bathgate&quot;</bucket>
+              <bucket>&quot;Woodhaven&quot;</bucket>
+              <bucket>&quot;Kew Gardens Hills&quot;</bucket>
+              <bucket>&quot;Hunts Point&quot;</bucket>
+              <bucket>&quot;Borough Park&quot;</bucket>
+              <bucket>&quot;Richmond Hill&quot;</bucket>
+              <bucket>&quot;Fordham South&quot;</bucket>
+              <bucket>&quot;Kensington&quot;</bucket>
+              <bucket>&quot;Jamaica&quot;</bucket>
+              <bucket>&quot;Ocean Hill&quot;</bucket>
+              <bucket>&quot;Longwood&quot;</bucket>
+              <bucket>&quot;Kingsbridge Heights&quot;</bucket>
+              <bucket>&quot;Columbia Street&quot;</bucket>
+              <bucket>&quot;South Williamsburg&quot;</bucket>
+              <bucket>&quot;Randalls Island&quot;</bucket>
+              <bucket>&quot;Inwood Hill Park&quot;</bucket>
+              <bucket>&quot;West Farms/Bronx River&quot;</bucket>
+              <bucket>&quot;Springfield Gardens South&quot;</bucket>
+              <bucket>&quot;Schuylerville/Edgewater Park&quot;</bucket>
+              <bucket>&quot;Williamsbridge/Olinville&quot;</bucket>
+              <bucket>&quot;East Tremont&quot;</bucket>
+              <bucket>&quot;Westchester Village/Unionport&quot;</bucket>
+              <bucket>&quot;Pelham Parkway&quot;</bucket>
+              <bucket>&quot;Bronxdale&quot;</bucket>
+              <bucket>&quot;Van Cortlandt Park&quot;</bucket>
+              <bucket>&quot;Erasmus&quot;</bucket>
+              <bucket>&quot;Brighton Beach&quot;</bucket>
+              <bucket>&quot;Whitestone&quot;</bucket>
+              <bucket>&quot;Prospect Park&quot;</bucket>
+              <bucket>&quot;Midwood&quot;</bucket>
+              <bucket>&quot;Homecrest&quot;</bucket>
+              <bucket>&quot;Allerton/Pelham Gardens&quot;</bucket>
+              <bucket>&quot;Van Nest/Morris Park&quot;</bucket>
+              <bucket>&quot;Bensonhurst East&quot;</bucket>
+              <bucket>&quot;Bayside&quot;</bucket>
+              <bucket>&quot;Sheepshead Bay&quot;</bucket>
+              <bucket>&quot;Murray Hill-Queens&quot;</bucket>
+              <bucket>&quot;Glen Oaks&quot;</bucket>
+              <bucket>&quot;Fresh Meadows&quot;</bucket>
+              <bucket>&quot;Flatlands&quot;</bucket>
+              <bucket>&quot;Soundview/Castle Hill&quot;</bucket>
+              <bucket>&quot;Oakland Gardens&quot;</bucket>
+              <bucket>&quot;Jamaica Estates&quot;</bucket>
+              <bucket>&quot;East Flatbush/Remsen Village&quot;</bucket>
+              <bucket>&quot;East Flatbush/Farragut&quot;</bucket>
+              <bucket>&quot;Crotona Park East&quot;</bucket>
+              <bucket>&quot;Brownsville&quot;</bucket>
+              <bucket>&quot;South Jamaica&quot;</bucket>
+              <bucket>&quot;Pelham Bay&quot;</bucket>
+              <bucket>&quot;East New York&quot;</bucket>
+              <bucket>&quot;Co-Op City&quot;</bucket>
+              <bucket>&quot;Queensboro Hill&quot;</bucket>
+              <bucket>&quot;Madison&quot;</bucket>
+              <bucket>&quot;College Point&quot;</bucket>
+              <bucket>&quot;Bath Beach&quot;</bucket>
+              <bucket>&quot;Manhattan Beach&quot;</bucket>
+              <bucket>&quot;Howard Beach&quot;</bucket>
+              <bucket>&quot;East Flushing&quot;</bucket>
+              <bucket>&quot;Ozone Park&quot;</bucket>
+              <bucket>&quot;Ocean Parkway South&quot;</bucket>
+              <bucket>&quot;Marine Park/Mill Basin&quot;</bucket>
+              <bucket>&quot;Douglaston&quot;</bucket>
+              <bucket>&quot;Saint Albans&quot;</bucket>
+              <bucket>&quot;Queens Village&quot;</bucket>
+              <bucket>&quot;Springfield Gardens North&quot;</bucket>
+              <bucket>&quot;Gravesend&quot;</bucket>
+              <bucket>&quot;Canarsie&quot;</bucket>
+              <bucket>&quot;Brooklyn Navy Yard&quot;</bucket>
+              <bucket>&quot;Bellerose&quot;</bucket>
+              <bucket>&quot;Bay Terrace/Fort Totten&quot;</bucket>
+              <bucket>&quot;Rockaway Park&quot;</bucket>
+              <bucket>&quot;Hillcrest/Pomonok&quot;</bucket>
+              <bucket>&quot;Eastchester&quot;</bucket>
+              <bucket>&quot;East New York/Pennsylvania Avenue&quot;</bucket>
+              <bucket>&quot;Cypress Hills&quot;</bucket>
+              <bucket>&quot;Auburndale&quot;</bucket>
+              <bucket>&quot;Bloomfield/Emerson Hill&quot;</bucket>
+              <bucket>&quot;Rosedale&quot;</bucket>
+              <bucket>&quot;Marble Hill&quot;</bucket>
+              <bucket>&quot;Highbridge Park&quot;</bucket>
+              <bucket>&quot;Far Rockaway&quot;</bucket>
+              <bucket>&quot;Willets Point&quot;</bucket>
+              <bucket>&quot;Westerleigh&quot;</bucket>
+              <bucket>&quot;West Brighton&quot;</bucket>
+              <bucket>&quot;Stapleton&quot;</bucket>
+              <bucket>&quot;Laurelton&quot;</bucket>
+              <bucket>&quot;City Island&quot;</bucket>
+              <bucket>&quot;Cambria Heights&quot;</bucket>
+              <bucket>&quot;Arrochar/Fort Wadsworth&quot;</bucket>
+              <bucket>&quot;Hollis&quot;</bucket>
+              <bucket>&quot;Hammels/Arverne&quot;</bucket>
+              <bucket>&quot;Grymes Hill/Clifton&quot;</bucket>
+              <bucket>&quot;Forest Park/Highland Park&quot;</bucket>
+              <bucket>&quot;Country Club&quot;</bucket>
+              <bucket>&quot;Astoria Park&quot;</bucket>
+              <bucket>&quot;Saint George/New Brighton&quot;</bucket>
+              <bucket>&quot;Rossville/Woodrow&quot;</bucket>
+              <bucket>&quot;Marine Park/Floyd Bennett Field&quot;</bucket>
+              <bucket>&quot;Heartland Village/Todt Hill&quot;</bucket>
+              <bucket>&quot;Green-Wood Cemetery&quot;</bucket>
+              <bucket>&quot;Great Kills&quot;</bucket>
+              <bucket>&quot;Crotona Park&quot;</bucket>
+              <bucket>&quot;Arden Heights&quot;</bucket>
+              <bucket>&quot;South Beach/Dongan Hills&quot;</bucket>
+              <bucket>&quot;Saint Michaels Cemetery/Woodside&quot;</bucket>
+              <bucket>&quot;Oakwood&quot;</bucket>
+              <bucket>&quot;New Dorp/Midland Beach&quot;</bucket>
+              <bucket>&quot;Mariners Harbor&quot;</bucket>
+              <bucket>&quot;Freshkills Park&quot;</bucket>
+              <bucket>&quot;Charleston/Tottenville&quot;</bucket>
+              <bucket>&quot;Broad Channel&quot;</bucket>
+              <bucket>%all%</bucket>
+            </dictionary>
+          </sort>
+          <slices>
+            <column>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-color' value='#9d7660' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</rows>
+        <cols>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</cols>
+        <percentages enabled='true' mode='row' />
+      </table>
+    </worksheet>
+  </worksheets>
+  <windows source-height='30'>
+    <window class='worksheet' name='Sheet 1'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+            <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[sum:Frequency (July 2017):qk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+    </window>
+    <window class='worksheet' maximized='true' name='Sheet 2'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='fit-width' />
+        <selection-collection>
+          <tuple-selection>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>&quot;Bay Ridge&quot;</value>
+                <value>0.00051481097631192127</value>
+              </tuple>
+            </tuple-reference>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>&quot;Crown Heights North&quot;</value>
+                <value>0.00056561469107954503</value>
+              </tuple>
+            </tuple-reference>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>&quot;Bedford&quot;</value>
+                <value>0.00060287074857580251</value>
+              </tuple>
+            </tuple-reference>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>&quot;Fort Greene&quot;</value>
+                <value>0.00060625766289364408</value>
+              </tuple>
+            </tuple-reference>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>&quot;Bushwick South&quot;</value>
+                <value>0.0006739959492504759</value>
+              </tuple>
+            </tuple-reference>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>&quot;West Concourse&quot;</value>
+                <value>0.00074512114992514918</value>
+              </tuple>
+            </tuple-reference>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>&quot;Inwood&quot;</value>
+                <value>0.00074850806424299075</value>
+              </tuple>
+            </tuple-reference>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>&quot;Elmhurst&quot;</value>
+                <value>0.00078576412173924823</value>
+              </tuple>
+            </tuple-reference>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>&quot;Boerum Hill&quot;</value>
+                <value>0.00086366315104960476</value>
+              </tuple>
+            </tuple-reference>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>&quot;DUMBO/Vinegar Hill&quot;</value>
+                <value>0.00090091920854586225</value>
+              </tuple>
+            </tuple-reference>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>&quot;Forest Hills&quot;</value>
+                <value>0.000951722923313486</value>
+              </tuple>
+            </tuple-reference>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>&quot;NV&quot;</value>
+                <value>0.0010668780101200999</value>
+              </tuple>
+            </tuple-reference>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>&quot;Woodside&quot;</value>
+                <value>0.0010871994960271495</value>
+              </tuple>
+            </tuple-reference>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>&quot;Greenpoint&quot;</value>
+                <value>0.001090586410344991</value>
+              </tuple>
+            </tuple-reference>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>&quot;Williamsburg (South Side)&quot;</value>
+                <value>0.001090586410344991</value>
+              </tuple>
+            </tuple-reference>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>&quot;Manhattanville&quot;</value>
+                <value>0.0011346162964769317</value>
+              </tuple>
+            </tuple-reference>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>&quot;Old Astoria&quot;</value>
+                <value>0.001148163953748298</value>
+              </tuple>
+            </tuple-reference>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>&quot;Downtown Brooklyn/MetroTech&quot;</value>
+                <value>0.0011583246967018228</value>
+              </tuple>
+            </tuple-reference>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>&quot;Williamsburg (North Side)&quot;</value>
+                <value>0.0011718723539731891</value>
+              </tuple>
+            </tuple-reference>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>&quot;Long Island City/Queens Plaza&quot;</value>
+                <value>0.0012971881837333279</value>
+              </tuple>
+            </tuple-reference>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>&quot;Park Slope&quot;</value>
+                <value>0.0015173376143930311</value>
+              </tuple>
+            </tuple-reference>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>&quot;Brooklyn Heights&quot;</value>
+                <value>0.0016020104723390707</value>
+              </tuple>
+            </tuple-reference>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>&quot;Jackson Heights&quot;</value>
+                <value>0.0016189450439282787</value>
+              </tuple>
+            </tuple-reference>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>&quot;Alphabet City&quot;</value>
+                <value>0.0016392665298353283</value>
+              </tuple>
+            </tuple-reference>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>&quot;Stuy Town/Peter Cooper Village&quot;</value>
+                <value>0.0019237673325340216</value>
+              </tuple>
+            </tuple-reference>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>&quot;Steinway&quot;</value>
+                <value>0.0019948925332086949</value>
+              </tuple>
+            </tuple-reference>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>&quot;Seaport&quot;</value>
+                <value>0.0020050532761622195</value>
+              </tuple>
+            </tuple-reference>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>&quot;nan&quot;</value>
+                <value>0.0020423093336584771</value>
+              </tuple>
+            </tuple-reference>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>&quot;Two Bridges/Seward Park&quot;</value>
+                <value>0.0021473036775115665</value>
+              </tuple>
+            </tuple-reference>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>&quot;Chinatown&quot;</value>
+                <value>0.002164238249100774</value>
+              </tuple>
+            </tuple-reference>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>&quot;Washington Heights North&quot;</value>
+                <value>0.0022218157925040813</value>
+              </tuple>
+            </tuple-reference>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>&quot;Bloomingdale&quot;</value>
+                <value>0.0024656736233886756</value>
+              </tuple>
+            </tuple-reference>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>&quot;Long Island City/Hunters Point&quot;</value>
+                <value>0.0024724474520243585</value>
+              </tuple>
+            </tuple-reference>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>&quot;Sunnyside&quot;</value>
+                <value>0.0026655015681413294</value>
+              </tuple>
+            </tuple-reference>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>&quot;Hamilton Heights&quot;</value>
+                <value>0.0026790492254126956</value>
+              </tuple>
+            </tuple-reference>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>&quot;East Harlem North&quot;</value>
+                <value>0.0029127463133437649</value>
+              </tuple>
+            </tuple-reference>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>&quot;Battery Park&quot;</value>
+                <value>0.0032378900878565573</value>
+              </tuple>
+            </tuple-reference>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>&quot;Washington Heights South&quot;</value>
+                <value>0.0034173965467021615</value>
+              </tuple>
+            </tuple-reference>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>&quot;Central Harlem North&quot;</value>
+                <value>0.0035460992907801418</value>
+              </tuple>
+            </tuple-reference>
+            <tuple-reference>
+              <tuple-descriptor>
+                <pane-descriptor>
+                  <x-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  </x-fields>
+                  <y-fields>
+                    <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                  </y-fields>
+                </pane-descriptor>
+                <columns>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+                  <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[pcto:sum:Frequency (July 2017):qk:2]</field>
+                </columns>
+              </tuple-descriptor>
+              <tuple>
+                <value>&quot;Hudson Sq&quot;</value>
+                <value>0.0037120580923543796</value>
+              </tuple>
+            </tuple-reference>
+          </tuple-selection>
+        </selection-collection>
+        <highlight>
+          <color-one-way>
+            <field>[federated.1tmxty81kiwfl11232ja80nm7ee8].[none:Zone:nk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Sheet 1' width='192'>
+      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
+      yP8PO6aiWiPlv+oAAAAASUVORK5CYII=
+    </thumbnail>
+    <thumbnail height='192' name='Sheet 2' width='192'>
+      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
+      e8ctpH3ez6kAAAAASUVORK5CYII=
+    </thumbnail>
+  </thumbnails>
+</workbook>
