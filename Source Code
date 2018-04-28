@@ -1,0 +1,39 @@
+# This program uses Yellow Taxis data in the month of July from 2015-2017
+# to determine where customers go after leaving a particular destination
+
+# Data from http://www.nyc.gov/html/tlc/html/about/trip_record_data.shtml
+
+import numpy as np
+import pandas as pd
+import time
+
+start_time = time.clock()
+# Initialize
+ftx_path =      r'H:\The Data Incubator Projects\Taxi Travel\yellow_tripdata_2017-07.csv' #This is the file the data is stored in
+loc_code_path = r'H:\The Data Incubator Projects\Taxi Travel\taxi_zone_lookup.csv' # Zone lookup code
+
+loc_specific = 230.0 # This is the specific district of Times Square
+PUc = 'PULocationID' # Pick Up Column
+DOc = 'DOLocationID' # Pick Up Column
+
+# Read
+
+df_data = pd.read_csv(ftx_path, sep=',', usecols=[PUc, DOc])# Read only the two columns
+df_code = pd.read_csv(loc_code_path, sep=',', ) # Read the location log
+
+#df_specific = df_data.loc[df_data[PUc] == loc_specific] # Only show DO from loc_specific (see Initilize)
+
+
+df_specific = df_data.loc[df_data[PUc] == loc_specific].ix[:,DOc] #Slice only specific PU location
+
+specific_loc = []*len(df_specific)
+for DOID in df_specific:
+    specific_loc.append(df_code.loc[DOID-1, 'Zone']) # Add each location to a list
+
+unique, counts = np.unique(specific_loc, return_counts=True) #Creates a frequency distribution
+
+for un , co in zip(unique, counts): #prints the freq. dist
+    print(un, '~', co) 
+
+    
+print("--- %s seconds ---" % (time.clock() - start_time))
